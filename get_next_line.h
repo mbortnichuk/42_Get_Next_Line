@@ -6,7 +6,7 @@
 /*   By: mbortnic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 13:51:22 by mbortnic          #+#    #+#             */
-/*   Updated: 2017/12/07 14:39:37 by mbortnic         ###   ########.fr       */
+/*   Updated: 2017/12/08 11:28:25 by mbortnic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 # include <fcntl.h>
 # include <string.h>
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
+
+# define ERROR -1
+# define END 0
+# define LINE 1
 
 # define BUFF_SIZE 50
 
@@ -29,5 +33,7 @@ typedef struct s_gnl
 }	t_gnl;
 
 int	get_next_line(const int fd, char **line);
+
+char	*ft_free_strjoin(char *s1, char *s2);
 
 #endif
