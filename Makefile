@@ -35,18 +35,15 @@ $(NAME): $(LIBFT) $(OBJ)
 $(OBJ): $(LIBFT)
 	$(CC) $(CFLAGS) -c $(SRC)
 
-lib: 
-	make -C ./libft/
-
 $(LIBFT): lib
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 	make clean -C ./libft/
 	@ echo "\033[33;1mobj files are removed\033[0m"
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 	make fclean -C ./libft/
 	@ echo "\033[31;1m$(NAME) is deleted\033[0m"
 
