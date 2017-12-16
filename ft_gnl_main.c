@@ -1,3 +1,11 @@
+#include "get_next_line.h"
+#include "libft/libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+
 int	main(int ac, char **av)
 {
 
@@ -56,7 +64,7 @@ void	ft_readi(int fd)
 		printf("r = %d line : |%s|\n", r, line);
 		free(line);
 	}
-	printf("r = %d line : |%s|\n", r, line);
+	//printf("r = %d line : |%s|\n", r, line);
 }
 
 int		main(int ac, char **av)
@@ -72,6 +80,8 @@ int		main(int ac, char **av)
 		ft_readi(0);
 	return (0);
 }
+
+
 
 int		main(int argc, char **argv)
 {

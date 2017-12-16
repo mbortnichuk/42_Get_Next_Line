@@ -69,24 +69,24 @@ t_gnl    *ft_multifd(t_gnl **frst, int fd)
     return (str);
 }
 
-// char    *ft_trim_free(char *str)
-// {
-//     char    *temp;
-//     int        i;
-//     int        a;
+char    *ft_trim_free(char *str)
+{
+    char    *temp;
+    int        i;
+    int        a;
 
-//     i = 0;
-//     a = 0;
-//     temp = ft_strnew(ft_strlen(str));
-//     while (str[i] != '\n')
-//         i++;
-//     i++;
-//     while (str[i])
-//         temp[a++] = str[i++];
-//     ft_strdel(&str);
-//     temp[a] = '\0';
-//     return (temp);
-// }
+    i = 0;
+    a = 0;
+    temp = ft_strnew(ft_strlen(str));
+    while (str[i] != '\n')
+        i++;
+    i++;
+    while (str[i])
+        temp[a++] = str[i++];
+    ft_strdel(&str);
+    temp[a] = '\0';
+    return (temp);
+}
 
 size_t    ft_is_n(char *str, int count, int nlen)
 {
@@ -137,8 +137,8 @@ int		ft_strjoin_ch(char **temp, int fd, char **str)
 	buffer = ft_strnew(BUFF_SIZE);
 	ret = read(fd, buffer, BUFF_SIZE);
 	if (ret == -1)
-		return (-1);
-	while (backslashn(buffer, 1, 0) == 0 && ret > 0)
+		return (ERROR);
+	while (ft_is_n(buffer, 1, 0) == 0 && ret > 0)
 	{
 		sub = *temp;
 		*temp = ft_strjoin(sub, buffer);
@@ -150,11 +150,11 @@ int		ft_strjoin_ch(char **temp, int fd, char **str)
 	*temp = ft_strjoin(sub, buffer);
 	ft_strdel(&sub);
 	ft_strdel(&buffer);
-	sub = ft_strsub(*temp, 0, backslashn(*temp, 0, 1));
+	sub = ft_strsub(*temp, 0, ft_is_n(*temp, 0, 1));
 	if (sub == NULL)
 		sub = ft_strnew(0);
 	*str = sub;
-	return (0);
+	return (END);
 }
 
 // int		get_next_line(const int fd, char **line)
@@ -180,19 +180,19 @@ int		get_next_line(const int fd, char **line)
 
 	tmp = ft_multifd(&gnl, fd);
 	if (ft_strjoin_ch(&tmp->str, fd, &sub) != 0 || line == NULL || BUFF_SIZE < 1)
-		return (-1);
+		return (ERROR);
 	if (*sub == '\0' && ft_is_n(tmp->str, 1, 0) == 0)
 	{
 		*line = sub;
-		return (0);
+		return (END);
 	}
 	if (ft_is_n(tmp->str, 1, 0) > 0)
 	{
 		*line = sub;
 		tmp->str = ft_trim_free(tmp->str);
-		return (1);
+		return (LINE);
 	}
 	*line = sub;
 	ft_strclr(tmp->str);
-	return (1);
+	return (LINE);
 }

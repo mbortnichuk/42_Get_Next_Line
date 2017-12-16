@@ -37,6 +37,9 @@ $(OBJ): $(LIBFT)
 
 $(LIBFT): lib
 
+lib: 
+	make -C libft
+
 clean:
 	$(RM) $(OBJ)
 	make clean -C ./libft/

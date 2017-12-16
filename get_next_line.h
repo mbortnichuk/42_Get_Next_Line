@@ -23,7 +23,7 @@
 # define END 0
 # define LINE 1
 
-# define BUFF_SIZE 50
+# define BUFF_SIZE 99999
 
 typedef struct	s_gnl
 {
