@@ -6,7 +6,7 @@
 /*   By: mbortnic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 13:51:22 by mbortnic          #+#    #+#             */
-/*   Updated: 2018/01/14 19:18:12 by mbortnic         ###   ########.fr       */
+/*   Updated: 2018/01/14 16:32:44 by mbortnic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,6 @@ int		find_n(char **res, char **line)
 	}
 	return (END);
 }
-
-
-/*
-** while reading from file we do several checks:
-** - if bytes read from the file less or equal to 0 - we should return -1;
-** - if res is empty (usually it can be first call to gnl with given fd) - 
-** we use strdup to allocate sufficient memory for a copy of the buffer and
-** place it to temp;
-** - if res is not empty - we use strjoin to concatenate all elements read
-** to buffer to res[fd], free res, and place to res[fd] that concatenated string.
-** then:
-** - if it's last line of the file and does not end with \n just copy re to line.
-*/
 
 int		get_next_line(const int fd, char **line)
 {
