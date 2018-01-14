@@ -20,7 +20,7 @@ char	*ft_strndup(char *str, size_t size)
 	i = 0;
 	new = (char *)malloc(sizeof(char) * (size + 1));
 	CHECK(new);
-	while (size--)
+	while (i < size)
 	{
 		new[i] = str[i];
 		i++;

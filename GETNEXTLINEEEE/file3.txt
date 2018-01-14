@@ -1,6 +1,0 @@
-privet
-tse
-gnl
-test
-with
-multifd
