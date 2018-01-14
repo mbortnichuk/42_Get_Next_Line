@@ -21,7 +21,7 @@
 # define END 0
 # define LINE 1
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 8
 # define FDS 4864
 
 #define CHECK(x) if (!x) return (0);
