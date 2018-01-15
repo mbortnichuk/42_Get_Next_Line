@@ -50,16 +50,17 @@ int		find_n(char **res, char **line)
 	}
 	return (END);
 }
+
 /*
  ** while reading from file we do several checks:
  ** - if bytes read from the file less or equal to 0 - we should return -1;
  ** - if res is empty (usually it can be first call to gnl with given fd) - 
  ** we use strdup to allocate sufficient memory for a copy of the buffer and
- ** place it to temp;
+ ** place it to res;
  ** - if res is not empty - we use strjoin to concatenate all elements read
  ** to buffer to res[fd], free res, and place to res[fd] that concatenated string.
  ** then:
- ** - if it's last line of the file and does not end with \n just copy re to line.
+ ** - if it's last line of the file and does not end with \n just copy res to line.
  */
 
 int		get_next_line(const int fd, char **line)
