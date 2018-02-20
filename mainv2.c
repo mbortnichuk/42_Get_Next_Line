@@ -49,12 +49,7 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-
-#include "project/get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
-
-void	ft_readi(int fd)
+/*void	ft_readi(int fd)
 {
 	char	*line;
 	int		r;
@@ -79,9 +74,7 @@ int		main(int ac, char **av)
 	else
 		ft_readi(0);
 	return (0);
-}
-
-
+}*/
 
 int		main(int argc, char **argv)
 {

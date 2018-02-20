@@ -59,13 +59,3 @@ norm:
 	@ echo "\033[35;1mnorminette check finished\033[0m"
 
 .PHONY: all re clean fclean norm
-
-
-
-# 	'$(NAME): $(LIB) $(OBJ) $(INC)
-#     $(CC) $(CFLAGS) -o $(NAME) $(LIB) $(OBJ)
-
-# lib:
-#     make -C libft
-
-# $(LIB): lib
